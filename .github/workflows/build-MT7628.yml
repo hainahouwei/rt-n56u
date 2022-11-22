@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: Checkout
+    # - name: Checkout
       # uses: actions/checkout@master
     - name: Initialization environment
       env:
@@ -107,11 +107,11 @@ jobs:
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
         done
-    - name: Upload binaries to release
+    # - name: Upload binaries to release
       # uses: hainahouwei/upload-release-action@v1-release
-      with:
-        repo_token: ${{ secrets.R_TOKEN }}
-        file: /opt/images/*.trx
-        tag: AtuoBuild
-        overwrite: true
-        file_glob: true
+      # with:
+      #   repo_token: ${{ secrets.R_TOKEN }}
+      #   file: /opt/images/*.trx
+      #   tag: AtuoBuild
+      #   overwrite: true
+      #   file_glob: true
