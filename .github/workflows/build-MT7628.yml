@@ -109,7 +109,7 @@ jobs:
         done
     # - name: Upload binaries to release
       # uses: hainahouwei/upload-release-action@v1-release
-      # with:
+      # with:.
       #   repo_token: ${{ secrets.R_TOKEN }}
       #   file: /opt/images/*.trx
       #   tag: AtuoBuild
