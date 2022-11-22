@@ -1,22 +1,13 @@
-name: Greeting from Mona
-on:
-  push:
-    branches:
-      - master
-# release:
-#   types: [published]
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
 jobs:
-  my-job:
-    name: My Job
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@V2
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
