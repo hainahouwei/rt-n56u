@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      # uses: actions/checkout@master
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -108,7 +108,7 @@ jobs:
         sudo mv -f images/*.trx /opt/images/
         done
     - name: Upload binaries to release
-      uses: hainahouwei/upload-release-action@v1-release
+      # uses: hainahouwei/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
