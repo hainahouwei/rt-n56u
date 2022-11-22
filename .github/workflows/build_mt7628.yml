@@ -1,13 +1,13 @@
 name: Build MT7628
 
 on: [push, pull_request]
-# release:
-#   types: [published]
+  # release:
+  #   types: [published]
 #  push:
 #    tags:
 #    - 'v*'
-#  branches: 
-#    - master
+  #  branches: 
+  #    - master
 #  schedule:
 #    - cron: 0 17 * * 4
 #  watch:
@@ -15,7 +15,8 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-18.04
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -101,18 +102,11 @@ jobs:
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
         done
-      - name : Upload binaries
-        uses: actions/upload-artifact@v3
-        with:
-          file: /opt/images/*.trx
-          tag: AtuoBuild
-          overwrite: true
-          file_glob: true
-    # - name: Upload binaries to release
-    #   uses: hainahouwei/upload-release-action@v1-release
-    #   with:.
-    #     repo_token: ${{ secrets.R_TOKEN }}
-    #     file: /opt/images/*.trx
-    #     tag: AtuoBuild
-    #     overwrite: true
-    #     file_glob: true
+    - name: Upload binaries to release
+      uses: actions/upload-artifact@v3
+      with:
+        repo_token: ${{ secrets.R_TOKEN }}
+        file: /opt/images/*.trx
+        tag: AtuoBuild
+        overwrite: true
+        file_glob: true
