@@ -22,11 +22,11 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    container:
-        image:rt-n56u
+    # container:
+    #     image:rt-n56u
     steps:
-    # - name: Checkout
-    #   uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -109,11 +109,19 @@ jobs:
         sudo ./build_firmware_modify $m 0
         sudo mv -f images/*.trx /opt/images/
         done
+      - name : Upload binaries
+        uses: actions/upload-artifact@master
+        with:.
+          repo_token: ${{ secrets.R_TOKEN }}
+          file: /opt/images/*.trx
+          tag: AtuoBuild
+          overwrite: true
+          file_glob: true
     # - name: Upload binaries to release
-      # uses: hainahouwei/upload-release-action@v1-release
-      # with:.
-      #   repo_token: ${{ secrets.R_TOKEN }}
-      #   file: /opt/images/*.trx
-      #   tag: AtuoBuild
-      #   overwrite: true
-      #   file_glob: true
+    #   uses: hainahouwei/upload-release-action@v1-release
+    #   with:.
+    #     repo_token: ${{ secrets.R_TOKEN }}
+    #     file: /opt/images/*.trx
+    #     tag: AtuoBuild
+    #     overwrite: true
+    #     file_glob: true
