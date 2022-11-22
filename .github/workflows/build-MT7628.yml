@@ -1,4 +1,4 @@
-name: Build MT7628
+name: ubuntu-latest Build MT7628
 
 on: [push, pull_request]
 # release:
@@ -15,7 +15,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3

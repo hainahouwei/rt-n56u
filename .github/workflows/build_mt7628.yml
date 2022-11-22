@@ -1,4 +1,4 @@
-name: Build MT7628
+name: ubuntu-18.04 Build mt7628
 
 on: [push, pull_request]
   # release:
