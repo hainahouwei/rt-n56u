@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    # - name: Checkout
-    #   uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -108,7 +108,7 @@ jobs:
         sudo mv -f images/*.trx /opt/images/
         done
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
+      uses: hainahouwei/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
