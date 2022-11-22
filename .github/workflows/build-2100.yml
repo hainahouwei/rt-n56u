@@ -6,9 +6,9 @@ name: Build RM2100 R2100
 #       - master
 
 
-on: 
-  release:
-    types: [published]
+on:  [push, pull_request]
+  # release:
+  #   types: [published]
 #  push:
 #    tags:
 #    - 'v*'
@@ -25,7 +25,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v1
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -103,7 +103,7 @@ jobs:
         sudo mv -f images/*.trx /opt/images/
         done
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
+      uses: actions/upload-artifact@v3
       with:
         repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
