@@ -1,8 +1,8 @@
 ##################################################################
 # Board PID # Board Name       # PRODUCT # Note
 ##################################################################
-# MI-NANO   # Xiaomi Mi Nano   # MT7628  #
+# PSG1218   # PHICOMM PSG1218  # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_MINANO
+CFLAGS += -DBOARD_PSG1218
 BOARD_NUM_USB_PORTS=0
