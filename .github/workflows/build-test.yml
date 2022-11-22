@@ -1,6 +1,8 @@
 name: Greeting from Mona
-on: 
-push
+on:
+  push:
+    branches:
+      - master
 # release:
 #   types: [published]
 jobs:
@@ -17,5 +19,4 @@ jobs:
         MIDDLE_NAME: The
         LAST_NAME: Octocat
       run: |
-        pwd
         echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.

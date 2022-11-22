@@ -1,14 +1,14 @@
 name: Build RM2100 R2100
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
 
-# on: 
-#   release:
-#     types: [published]
+on: 
+  release:
+    types: [published]
 #  push:
 #    tags:
 #    - 'v*'
