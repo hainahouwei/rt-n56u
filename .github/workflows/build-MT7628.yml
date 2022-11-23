@@ -32,7 +32,6 @@ jobs:
         cd toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
-        curl --create-dirs -L https://gomirrors.org/dl/go/go1.15.2.linux-amd64.tar.gz -o /home/runner/work/rt-n56u/rt-n56u/trunk/tools/go/go1.15.2.linux-amd64.tar.gz
     - name: Build Firmware
       env:
         TNAME: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A"
